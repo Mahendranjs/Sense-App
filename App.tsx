@@ -5,12 +5,12 @@
  * @format
  */
 
-import { NativeBaseProvider, extendTheme } from 'native-base';
+import { NativeBaseProvider, extendTheme} from 'native-base';
 import React from 'react';
 import Main from './src/Navigation/navigation';
 import 'react-native-gesture-handler';
 import { enableScreens } from 'react-native-screens';
-import { LogBox } from 'react-native';
+import { LogBox,SafeAreaView, StyleSheet } from 'react-native';
 
 enableScreens();
 LogBox.ignoreAllLogs()
@@ -43,7 +43,15 @@ export default function App() {
   });
   return(
     <NativeBaseProvider theme={theme}>
-      <Main/>
+      <SafeAreaView style={styles.container}>
+          <Main/>
+      </SafeAreaView>
     </NativeBaseProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});

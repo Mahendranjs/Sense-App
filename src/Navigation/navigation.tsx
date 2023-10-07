@@ -9,24 +9,9 @@ import ProfileScreen from "../Screens/profile";
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from "../Authentication/login";
 import SignUpScreen from "../Authentication/sign-up";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
-const TopTab = createMaterialTopTabNavigator();
-
-function MyTabs() {
-  return (
-    <TopTab.Navigator >
-      <TopTab.Screen name="Home" component={SignUpScreen} options={{
-        tabBarStyle: { backgroundColor: "#fff", borderTopWidth: 0,height:10 },
-        tabBarShowLabel: false}} />
-      <TopTab.Screen name="Alerts" component={AlertsScreen} options={{
-        tabBarStyle: { backgroundColor: "#fff",height:10, borderTopWidth: 0,},
-        tabBarShowLabel: false}} />
-    </TopTab.Navigator>
-  );
-}
 
 function Home() {
   return (
@@ -44,7 +29,7 @@ const Main = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
       <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="SignUp" component={MyTabs} options={{ headerShown: false }}/>
+      <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }}/>
       <Stack.Screen name="Home" component={Home}   options={{ headerShown: false }} />
     </Stack.Navigator>
     </NavigationContainer>
