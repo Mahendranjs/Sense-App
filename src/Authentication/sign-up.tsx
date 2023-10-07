@@ -40,8 +40,8 @@ const SignUpScreen = (props: any) => {
                         </ScrollView>
                     </View>
                     <HStack px={6} position="absolute" bottom={2} space={5} >
-                        <Button rounded="lg" fontSize="lg" fontWeight="800" size="md" _text={{ fontWeight: "semibold" }} pr={5} variant="outline" borderColor="primary.500" flexGrow={1} onPress={() => console.log("hello world")}>Login</Button>
-                        <Button rounded="lg" size="md" pl={5} flexGrow={1} _text={{ fontWeight: "semibold" }} onPress={() => onNext()}>Continue</Button>
+                        <Button rounded="lg" fontSize="lg" fontWeight="800" size="md" _text={{ fontWeight: "semibold" }} variant="outline" borderColor="primary.500" flexGrow={1} onPress={() => console.log("hello world")}>Back To Login</Button>
+                        <Button rounded="lg" size="md" flexGrow={1} _text={{ fontWeight: "semibold" }} onPress={() => onNext()}>Continue</Button>
                     </HStack>
                 </KeyboardAvoidingView>
             </TouchableWithoutFeedback>
@@ -87,8 +87,8 @@ const SignUpScreen = (props: any) => {
                         </ScrollView>
                     </View>
                     <HStack px={6} position="absolute" bottom={2} space={5} >
-                        <Button rounded="lg" fontSize="lg" fontWeight="800" size="md" pr={5} variant="outline" _text={{ fontWeight: "semibold" }} borderColor="primary.500" flexGrow={1} onPress={() => props.navigation.goBack()}>Go Back</Button>
-                        <Button rounded="lg" size="md" pl={5} flexGrow={1} _text={{ fontWeight: "semibold" }} onPress={() => onNext()}>Continue</Button>
+                        <Button rounded="lg" fontSize="lg" fontWeight="800" size="md" variant="outline" _text={{ fontWeight: "semibold" }} borderColor="primary.500" flexGrow={1} onPress={() => props.navigation.goBack()}>Go Back</Button>
+                        <Button rounded="lg" size="md" flexGrow={1} _text={{ fontWeight: "semibold" }} onPress={() => onNext()}>Continue</Button>
                     </HStack>
                 </KeyboardAvoidingView>
             </TouchableWithoutFeedback>
@@ -126,8 +126,8 @@ const SignUpScreen = (props: any) => {
                         </ScrollView>
                     </View>
                     <HStack px={6} position="absolute" bottom={2} space={5} >
-                        <Button rounded="lg" fontSize="lg" fontWeight="800" size="md" pr={5} _text={{ fontWeight: "semibold" }} variant="outline" borderColor="primary.500" flexGrow={1} onPress={() => props.navigation.navigate('Tab2')}>Go Back</Button>
-                        <Button rounded="lg" size="md" pl={5} _text={{ fontWeight: "semibold" }} flexGrow={1} onPress={() => console.log("hello world")}>Continue</Button>
+                        <Button rounded="lg" fontSize="lg" fontWeight="800" size="md" _text={{ fontWeight: "semibold" }} variant="outline" borderColor="primary.500" flexGrow={1} onPress={() => props.navigation.navigate('Tab2')}>Go Back</Button>
+                        <Button rounded="lg" size="md"  _text={{ fontWeight: "semibold" }} flexGrow={1} onPress={() => console.log("hello world")}>Continue</Button>
                     </HStack>
                 </KeyboardAvoidingView>
             </TouchableWithoutFeedback>
