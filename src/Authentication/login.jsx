@@ -7,6 +7,7 @@ export default function LoginScreen() {
     const [passError, setPassError] = useState({});
 
     const validateEmail = (value) => {
+        var validRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         if (value === undefined || value == '') {
             setEmailError({
                 ...emailError,
@@ -17,7 +18,13 @@ export default function LoginScreen() {
                 ...emailError,
                 emailmsg: "Email is required",
             });
-        } else {
+        } else if(!value.match(validRegex)) {
+            setEmailError({
+                ...emailError,
+                emailmsg: "Invalid Email",
+            });
+        }
+        else {
             setEmailError({});
         }
     };
