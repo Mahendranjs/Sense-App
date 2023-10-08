@@ -40,7 +40,7 @@ const SignUpScreen = (props: any) => {
                         </ScrollView>
                     </View>
                     <HStack px={6} position="absolute" bottom={2} space={5} >
-                        <Button rounded="lg" fontSize="lg" fontWeight="800" size="md" _text={{ fontWeight: "semibold" }} variant="outline" borderColor="primary.500" flexGrow={1} onPress={() => console.log("hello world")}>Back To Login</Button>
+                        <Button rounded="lg" fontSize="lg" fontWeight="800" size="md" _text={{ fontWeight: "semibold" }} variant="outline" borderColor="primary.500" flexGrow={1} onPress={() => props.navigation.navigate('Login')}>Back To Login</Button>
                         <Button rounded="lg" size="md" flexGrow={1} _text={{ fontWeight: "semibold" }} onPress={() => onNext()}>Continue</Button>
                     </HStack>
                 </KeyboardAvoidingView>

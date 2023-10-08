@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, Flex, FormControl, Heading, Input, Link, VStack } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 
-export default function LoginScreen() {
+export default function LoginScreen(props) {
     const [formData, setData] = useState({});
     const [emailError, setEmailError] = useState({});
     const [passError, setPassError] = useState({});
@@ -59,7 +59,7 @@ export default function LoginScreen() {
     };
 
     const goToSignUpScreen = () => {
-        this.props.navigation.navigate('SignUpScreen');
+        props.navigation.navigate('SignUp');
     };
 
     return (
@@ -79,6 +79,9 @@ export default function LoginScreen() {
                         <Input
                             color="black"
                             placeholder="Email"
+                            rounded="lg"
+                            borderColor="gray.400" _input={{ color: "text.700", fontSize: "sm" }}
+                            placeholderTextColor="gray.400"
                             onChangeText={(value) => {
                                 setData({
                                     ...formData,
@@ -95,6 +98,9 @@ export default function LoginScreen() {
                             color="black"
                             type="password"
                             placeholder="Password"
+                            rounded="lg"
+                            borderColor="gray.400" _input={{ color: "text.700", fontSize: "sm" }}
+                            placeholderTextColor="gray.400"
                             onChangeText={(value) => {
                                 setData({
                                     ...formData,
@@ -105,10 +111,10 @@ export default function LoginScreen() {
                         />
                         <FormControl.ErrorMessage>{passError.passmsg}</FormControl.ErrorMessage>
                     </FormControl>
-                    <Button mt="2" onPress={onSubmit}>
+                    <Button mt="2" rounded="lg"  size="md" flexGrow={1} _text={{ fontWeight: "semibold" }}  onPress={onSubmit}>
                         Log In
                     </Button>
-                    <Button mt="2" variant="outline" borderColor="primary.500" oonPress={goToSignUpScreen}>
+                    <Button mt="2" rounded="lg" variant="outline" borderColor="primary.500"  fontSize="lg" fontWeight="800" size="md" _text={{ fontWeight: "semibold" }} onPress={goToSignUpScreen}>
                         Sign Up
                     </Button>
                     <Link
@@ -120,7 +126,7 @@ export default function LoginScreen() {
                         alignSelf="flex-end"
                         mt="1"
                     >
-                        Forget Password?
+                        Forgot Password?
                     </Link>
                 </VStack>
             </Box>
