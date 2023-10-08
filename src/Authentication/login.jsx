@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, Button, Flex, FormControl, Heading, Input, Link, VStack } from "native-base";
+import { useNavigation } from "@react-navigation/native";
 
 export default function LoginScreen() {
     const [formData, setData] = useState({});
@@ -18,7 +19,7 @@ export default function LoginScreen() {
                 ...emailError,
                 emailmsg: "Email is required",
             });
-        } else if(!value.match(validRegex)) {
+        } else if (!value.match(validRegex)) {
             setEmailError({
                 ...emailError,
                 emailmsg: "Invalid Email",
@@ -51,9 +52,14 @@ export default function LoginScreen() {
         // use Object.Keys instead of emailError.emailmsg to avoid undefined error
         if (Object.keys(emailError).length === 0 && Object.keys(passError).length === 0) {
             console.log("Submitted");
+            //need to add navigation into sign up screen
         } else {
             console.log("Validation Failed");
         }
+    };
+
+    const goToSignUpScreen = () => {
+        this.props.navigation.navigate('SignUpScreen');
     };
 
     return (
@@ -102,7 +108,7 @@ export default function LoginScreen() {
                     <Button mt="2" onPress={onSubmit}>
                         Log In
                     </Button>
-                    <Button mt="2" variant="outline" borderColor="primary.500">
+                    <Button mt="2" variant="outline" borderColor="primary.500" oonPress={goToSignUpScreen}>
                         Sign Up
                     </Button>
                     <Link
@@ -118,6 +124,6 @@ export default function LoginScreen() {
                     </Link>
                 </VStack>
             </Box>
-        </Flex>
+        </Flex >
     );
 }
