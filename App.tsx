@@ -42,11 +42,11 @@ export default function App() {
     },
   });
   return(
-    <NativeBaseProvider theme={theme}>
-      <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <NativeBaseProvider theme={theme}>
           <Main/>
-      </SafeAreaView>
-    </NativeBaseProvider>
+      </NativeBaseProvider>
+    </SafeAreaView>
   );
 };
 
