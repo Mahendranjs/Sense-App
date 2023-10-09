@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Box, Button, Flex, FormControl, Heading, Input, Link, VStack } from "native-base";
-import { useNavigation } from "@react-navigation/native";
 
 export default function LoginScreen(props) {
     const [formData, setData] = useState({});
     const [emailError, setEmailError] = useState({});
     const [passError, setPassError] = useState({});
-
     const validateEmail = (value) => {
         var validRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         if (value === undefined || value == '') {
@@ -52,7 +50,8 @@ export default function LoginScreen(props) {
         // use Object.Keys instead of emailError.emailmsg to avoid undefined error
         if (Object.keys(emailError).length === 0 && Object.keys(passError).length === 0) {
             console.log("Submitted");
-            //need to add navigation into sign up screen
+            // setData({});  not working
+            //need to add navigation into Home screen
         } else {
             console.log("Validation Failed");
         }
@@ -60,6 +59,8 @@ export default function LoginScreen(props) {
 
     const goToSignUpScreen = () => {
         props.navigation.navigate('SignUp');
+        setEmailError({});
+        setPassError({});
     };
 
     return (
