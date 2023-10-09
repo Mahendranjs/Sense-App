@@ -9,6 +9,8 @@ import ProfileScreen from "../Screens/profile";
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from "../Authentication/login";
 import SignUpScreen from "../Authentication/sign-up";
+import PilotIntroScreen from "../Screens/Pilot/pilotintro";
+import MedicalInfoScreen from "../Screens/Pilot/medicalinfo";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -31,6 +33,8 @@ const Main = () => {
       <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
       <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }}/>
       <Stack.Screen name="Home" component={Home}   options={{ headerShown: false }} />
+      <Stack.Screen name="Pilot" component={PilotIntroScreen}   options={{ headerShown: false }} />
+      <Stack.Screen name="MedicalInfo" component={MedicalInfoScreen}   options={{ headerShown: false }} />
     </Stack.Navigator>
     </NavigationContainer>
   );
