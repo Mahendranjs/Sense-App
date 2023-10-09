@@ -137,17 +137,13 @@ const SignUpScreen = (props: any) => {
 
     return (
         <TopTab.Navigator screenOptions={{
-            tabBarStyle: { backgroundColor: "#fff", borderRadius: 30, borderTopWidth: 0, borderBottomWidth: 0, height: 5, pointerEvents: 'none', width: "100%", gap: 4 },
+            tabBarStyle: { backgroundColor: "#ffffff", borderRadius: 30, borderTopWidth: 0, borderBottomWidth: 0, height: 5, pointerEvents: 'none', width: "100%", elevation: 0, },
             tabBarShowLabel: false,
             tabBarIndicatorStyle: {
                 height: 4, borderRadius: 50, backgroundColor: '#2dc6c6'
             },
-            tabBarInactiveTintColor: "#2dc6c6",
             swipeEnabled: false,
-            tabBarContentContainerStyle: {
-                gap: 10
-            },
-
+            tabBarGap:4,
         }} >
             <TopTab.Screen name="Tab1" component={Tab1} />
             <TopTab.Screen name="Tab2" component={Tab2} />
