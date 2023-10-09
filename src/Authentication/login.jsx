@@ -64,8 +64,8 @@ export default function LoginScreen(props) {
     };
 
     return (
-        <Flex alignItems="center" mt="100">
-            <Box safeAreaBottom safeArea p="2" py="8" w="90%" maxW="290">
+        <Flex alignItems="center" justifyContent="center" h="100%" backgroundColor="#ffffff">
+            <Box safeArea w="100%" px={6}>
                 <Flex alignItems="center">
                     <Heading mt="1" fontWeight="medium" size="xs" color="coolGray.400">
                         Welcome to

@@ -87,7 +87,7 @@ const SignUpScreen = (props: any) => {
                         </ScrollView>
                     </View>
                     <HStack px={6} position="absolute" bottom={2} space={5} >
-                        <Button rounded="lg" fontSize="lg" fontWeight="800" size="md" variant="outline" _text={{ fontWeight: "semibold" }} borderColor="primary.500" flexGrow={1} onPress={() => props.navigation.goBack()}>Go Back</Button>
+                        <Button rounded="lg" fontSize="lg" fontWeight="800" size="md" variant="outline" _text={{ fontWeight: "semibold" }} borderColor="primary.500" flexGrow={1} onPress={() => props.navigation.navigate('Tab1')}>Go Back</Button>
                         <Button rounded="lg" size="md" flexGrow={1} _text={{ fontWeight: "semibold" }} onPress={() => onNext()}>Continue</Button>
                     </HStack>
                 </KeyboardAvoidingView>
@@ -137,17 +137,13 @@ const SignUpScreen = (props: any) => {
 
     return (
         <TopTab.Navigator screenOptions={{
-            tabBarStyle: { backgroundColor: "#fff", borderRadius: 30, borderTopWidth: 0, borderBottomWidth: 0, height: 5, pointerEvents: 'none', width: "100%", gap: 4 },
+            tabBarStyle: { backgroundColor: "#ffffff", borderRadius: 30, borderTopWidth: 0, borderBottomWidth: 0, height: 5, pointerEvents: 'none', width: "100%", elevation: 0, },
             tabBarShowLabel: false,
             tabBarIndicatorStyle: {
                 height: 4, borderRadius: 50, backgroundColor: '#2dc6c6'
             },
-            tabBarInactiveTintColor: "#2dc6c6",
             swipeEnabled: false,
-            tabBarContentContainerStyle: {
-                gap: 10
-            },
-
+            tabBarGap:4,
         }} >
             <TopTab.Screen name="Tab1" component={Tab1} />
             <TopTab.Screen name="Tab2" component={Tab2} />
