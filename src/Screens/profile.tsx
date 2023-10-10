@@ -1,10 +1,29 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { Avatar, Box, Flex, Heading, View, Text, VStack, ScrollView, Button, Pressable } from "native-base";
-import React from "react"
-import { TouchableOpacity } from "react-native";
+import { Avatar, Box, Flex, Heading, View, Text, VStack, ScrollView, Button, Pressable, Switch } from "native-base";
+import React, { useState } from "react"
+import { StyleSheet, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+
 const TopTab = createMaterialTopTabNavigator();
 
 export default function ProfileScreen(props: any) {
+
+  const style = StyleSheet.create({
+    viewToggle: {
+      height: 26,
+      width: 60,
+      borderRadius: 40,
+      justifyContent: 'center',
+      backgroundColor: '#effaf9',
+      gap: 10
+    },
+    circleToggle: {
+      width: 23,
+      height: 23,
+      borderRadius: 30,
+      paddingVertical: 1
+    }
+  })
 
   const Personal = () => (
     <View px={4} h="100%" w="100%" pt={3} backgroundColor="#fff" flex={1}>
@@ -188,46 +207,67 @@ export default function ProfileScreen(props: any) {
       </View>
     );
   }
-  const Medical = () => (
-    <View px={4} w="100%" pt={3} backgroundColor="#fff" flex={1}>
-      <ScrollView>
-      <Heading color="black" fontSize="sm">Medical Information</Heading>
-        <View flexDirection="row" ml={1}>
-          <VStack py={2}>
-            <Text isTruncated color="black" >
-              Type 1 Diabetes
-            </Text>
-            <Text color="gray.400" fontSize={12}>
-            Diabetes
-            </Text>
-          </VStack>
-        </View>
-        <View flexDirection="row" ml={1}>
-          <VStack py={2}>
-            <Text isTruncated color="black" >
-              5' 11'
-            </Text>
-            <Text color="gray.400" fontSize={12}>
-            Height
-            </Text>
-          </VStack>
-        </View>
-        <View flexDirection="row" ml={1}>
-          <VStack py={2}>
-            <Text isTruncated color="black" >
-              156'lbs
-            </Text>
-            <Text color="gray.400" fontSize={12}>
-            Weight
-            </Text>
-          </VStack>
-        </View>
-      </ScrollView>
-    </View>
-  );
+  const Medical = () => {
 
+    const [state, setState] = useState(false)
+    return (
+      <View px={4} w="100%" pt={3} backgroundColor="#fff" flex={1}>
+        <ScrollView>
+          <View flexDirection="row">
+            <VStack py={2} w="82%">
+              <Heading color="black" fontSize="sm">Medical Information</Heading>
+            </VStack>
+            <VStack w="18%" justifyContent="center" alignItems="center" >
+              <TouchableWithoutFeedback onPress={() => {
+                setState(!state)
+              }}>
+                <View style={[style.viewToggle]} display="flex" alignItems="center" justifyContent="" flexDirection="row">
+                  <View pl={0.5} style={[style.circleToggle, state ? { backgroundColor: '#2dc6c6' } : { backgroundColor: 'transparent' }]}>
+                    <MaterialIcons name={"lock-outline"} size={18}></MaterialIcons>
+                  </View>
+                  <View pl={0.5} style={[style.circleToggle, !state ? { backgroundColor: '#2dc6c6' } : { backgroundColor: 'transparent' }]}>
+                    <MaterialIcons name={"lock-open"} size={18}></MaterialIcons>
+                  </View>
+                </View>
+              </TouchableWithoutFeedback>
+            </VStack>
+          </View>
+          <View flexDirection="row" ml={1}>
+            <VStack py={2}>
+              <Text isTruncated color="black" >
+                Type 1 Diabetes
+              </Text>
+              <Text color="gray.400" fontSize={12}>
+                Diabetes
+              </Text>
+            </VStack>
+          </View>
+          <View flexDirection="row" ml={1}>
+            <VStack py={2}>
+              <Text isTruncated color="black" >
+                5' 11'
+              </Text>
+              <Text color="gray.400" fontSize={12}>
+                Height
+              </Text>
+            </VStack>
+          </View>
+          <View flexDirection="row" ml={1}>
+            <VStack py={2}>
+              <Text isTruncated color="black" >
+                156'lbs
+              </Text>
+              <Text color="gray.400" fontSize={12}>
+                Weight
+              </Text>
+            </VStack>
+          </View>
+        </ScrollView>
+      </View>
+    );
+  }
 
-  const CustomTabBarButton = ({ children, onPress, style, isFocused }) => (
+  const CustomTabBarButton = ({children, onPress, style, isFocused }) => (
     <TouchableOpacity onPress={onPress} style={style}>
       <View>
         <Text style={{ color: isFocused ? '#2dc6c6' : 'grey', fontWeight: isFocused ? 'bold' : '400' }}>{children}</Text>

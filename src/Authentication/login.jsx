@@ -45,6 +45,7 @@ export default function LoginScreen(props) {
     };
 
     const onSubmit = () => {
+        // props.navigation.navigate('Home');
         validateEmail(formData.email);
         validatePassword(formData.password);
         // use Object.Keys instead of emailError.emailmsg to avoid undefined error
