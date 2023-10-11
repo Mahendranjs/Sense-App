@@ -1,10 +1,54 @@
-import { Avatar, Flex, Heading, HStack, Pressable, View, VStack, Text, Progress, Box, Circle, SimpleGrid, Stack } from "native-base";
+import { Heading, HStack, View, VStack, Text, Progress, Box, Circle} from "native-base";
 import React from "react"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import { LineChart, BarChart, XAxis, YAxis } from 'react-native-svg-charts';
+import * as shape from 'd3-shape';
+import { Dimensions } from "react-native";
 
 export default function Dashboard() {
+    const dataLine = [100,200,300,400];
+    const dataLine1 = [0,10,20,0]
+    const dataLine2 = ['12am','6am','12pm','6pm'];
+
+    const dataBar = [10, 30, 40, 60, 80, 20];
+    const contentInset = { top: 30, bottom: 30 };
+   
     return (
+        <>
+            <View style={{ height: 170, flexDirection: 'row',backgroundColor:"#fff" }}>
+                <YAxis
+                    data={dataLine}
+                    style={{width:30}}
+                    numberOfTicks={4}
+                    contentInset={contentInset}
+                    svg={{ fill: 'grey', fontSize: 10 }}
+                />
+
+                <View style={{ flex: 1 }}>
+                    <LineChart
+                        style={{ flex: 1,width:Dimensions.get('screen').width - 30 }}
+                        data={dataLine1}
+                        svg={{ stroke: 'rgb(134, 65, 244)',fill:'#2dc6c6' }}
+                        // contentInset={contentInset}
+                        curve={shape.curveCardinal.tension(0.2)} // Use curveCardinal with tension for a smooth curve
+                    />
+
+                    {/* <BarChart
+                            style={{width:Dimensions.get('screen').width - 30, position: 'absolute', top: 0, bottom: 0, right: 0, left: 0 }}
+                            data={dataBar}
+                            svg={{ fill: 'rgba(255, 0, 0, 0.7)' }}
+                            contentInset={contentInset}
+                        /> */}
+                    <XAxis
+                        style={{ marginHorizontal: -10,width:Dimensions.get('screen').width - 30 }}
+                        data={dataLine2}
+                        formatLabel={(value, index) => dataLine2[index]}
+                        contentInset={{ left: 20, right: 10 }}
+                        svg={{ fontSize: 10, fill: 'black' }}
+                    />
+                </View>
+        </View>
         <View h="100%" w="100%" px={3} style={{ backgroundColor: "#ffffff" }}>
             <HStack space={2.5} alignItems="center">
                 <Circle size="25px" bg="#e4f6f3">
@@ -83,7 +127,7 @@ export default function Dashboard() {
                     </View>
                 </Box>
             </HStack>
-
         </View>
+        </>
     )
 }

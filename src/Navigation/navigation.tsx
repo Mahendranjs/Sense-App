@@ -17,6 +17,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Dashboard from "../Screens/Day/Dashboard";
 import { Heading, HStack, Pressable, Text, View, VStack } from "native-base";
+import Sleep from "../Screens/Day/Sleep";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -33,13 +34,20 @@ function DayRoute(){
             </VStack>
         )
       },
-      headerRight:(props)=> {
+      headerRight:(props:any)=> {
+        console.log(props)
+       const  BackNavigation = () => {
+
+       }
+
+       const  forwardNavigation = () => {
+      }
         return (
           <HStack px={3} pb={3} space={2}>
-              <Pressable pl={1} display="flex" style={{height:30,width:30,borderRadius:30,backgroundColor:"#E4F6F7",alignItems: "center",justifyContent:"center"}}>
+              <Pressable pl={1} display="flex" style={{height:30,width:30,borderRadius:30,backgroundColor:"#E4F6F7",alignItems: "center",justifyContent:"center"}} onPress={()=> BackNavigation()}>
                 <MaterialIcons name="arrow-back-ios" color="black" size={14}></MaterialIcons>
               </Pressable>
-              <Pressable pl={1} display="flex" style={{height:30,width:30,borderRadius:30,backgroundColor:"#E4F6F7",alignItems: "center",justifyContent:"center"}}>
+              <Pressable pl={1} display="flex" style={{height:30,width:30,borderRadius:30,backgroundColor:"#E4F6F7",alignItems: "center",justifyContent:"center"}} onPress={()=> forwardNavigation()}>
                   <MaterialIcons name="arrow-forward-ios" color="black" size={14}></MaterialIcons>
               </Pressable>
           </HStack>
@@ -58,6 +66,7 @@ function DayRoute(){
           height: 0,
           width:0
         }}}} />
+          <Stack.Screen name="Sleep" component={Sleep} options={{headerStyle:{ backgroundColor:"#ffffff"}}} />
     </Stack.Navigator>
   );
 }
@@ -94,7 +103,7 @@ function Home() {
 const Main = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
