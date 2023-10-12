@@ -18,7 +18,7 @@ const SignUpScreen = (props: any) => {
                     behavior={(Platform.OS === 'ios') ? 'padding' : 'height'}
                     keyboardVerticalOffset={Platform.select({ ios: 70, android: 0 })}>
                     <View size="full" px={6} flex={1}>
-                        <ScrollView keyboardShouldPersistTaps="handled" >
+                        <ScrollView keyboardShouldPersistTaps="handled" showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
                             <Heading size="md" py={4} fontWeight="500" color="black">Contact Information</Heading>
                             <VStack variant="" space={2} w="100%" pt={1} >
                                 <FormControl>
@@ -61,7 +61,7 @@ const SignUpScreen = (props: any) => {
                     behavior={(Platform.OS === 'ios') ? 'padding' : 'height'}
                     keyboardVerticalOffset={Platform.select({ ios: 70, android: 0 })}>
                     <View size="full" px={6} flex={1}>
-                        <ScrollView keyboardShouldPersistTaps="handled" >
+                        <ScrollView keyboardShouldPersistTaps="handled" showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
                             <Heading size="md" py={4} fontWeight="500" color="black">Location</Heading>
                             <VStack variant="" space={2} w="100%" pt={1} >
                                 <FormControl>
@@ -108,7 +108,7 @@ const SignUpScreen = (props: any) => {
                     behavior={(Platform.OS === 'ios') ? 'padding' : 'height'}
                     keyboardVerticalOffset={Platform.select({ ios: 70, android: 0 })}>
                     <View size="full" px={6} flex={1}>
-                        <ScrollView keyboardShouldPersistTaps="handled" >
+                        <ScrollView keyboardShouldPersistTaps="handled" showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
                             <Heading size="md" py={4} fontWeight="500" color="black">Information</Heading>
                             <VStack variant="" space={2} w="100%" pt={1} >
                                 <FormControl>

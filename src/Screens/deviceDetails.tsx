@@ -4,7 +4,7 @@ import React from "react"
 export default function DeviceDetails() {
     return (
         <View px={4} w="100%" pt={3} backgroundColor="#fff" flex={1}>
-      <ScrollView>
+      <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
         <Pressable w="100%" rounded="lg" flexDirection="row" overflow="hidden" borderColor="coolGray.200" borderWidth="0.8">
         <View w="80%" flexDirection="row">
           <View pl={2} py={3} alignItems="center">

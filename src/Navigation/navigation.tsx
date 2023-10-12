@@ -16,17 +16,18 @@ import Entypo from "react-native-vector-icons/Entypo";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Dashboard from "../Screens/Day/Dashboard";
-import { Heading, HStack, Pressable, Text, View, VStack } from "native-base";
+import { Heading, HStack, Pressable, Text, VStack } from "native-base";
 import Sleep from "../Screens/Day/Sleep";
+import StrainExcercise from "../Screens/Day/StrainExcercise";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-function DayRoute(){
+function DayRoute(props:any){
   return (
-    <Stack.Navigator initialRouteName="Dashboard" screenOptions={{
-      headerTitle:'',
-      headerLeft:(props)=> {
+    <Stack.Navigator initialRouteName="Dashboard"    screenOptions={({ route }) => ({
+        headerTitle:'',
+           headerLeft:(props)=> {
           return (
             <VStack px={3} pb={3}>
               <Heading fontSize="md" color="black">Today Sep 12</Heading>
@@ -34,13 +35,30 @@ function DayRoute(){
             </VStack>
         )
       },
-      headerRight:(props:any)=> {
-        console.log(props)
+      headerRight:(prop:any)=> {
        const  BackNavigation = () => {
-
+        switch(route.name){
+          case 'Dashboard':
+            props.navigation.goBack(null);
+            break;
+          case 'Sleep':
+            props.navigation.navigate('Dashboard')
+            break;
+          case 'StrainExcercise':
+              props.navigation.navigate('Sleep')
+              break;
+        }
        }
 
        const  forwardNavigation = () => {
+        switch(route.name){
+          case 'Dashboard':
+            props.navigation.navigate('Sleep');
+            break;
+          case 'Sleep':
+            props.navigation.navigate('StrainExcercise')
+            break;
+        }
       }
         return (
           <HStack px={3} pb={3} space={2}>
@@ -60,13 +78,15 @@ function DayRoute(){
         borderWidth:0 ,
         borderBottomColor:'#ffffff'
       }
-    }} >
+    })}
+    >
         <Stack.Screen name="Dashboard" component={Dashboard} options={{headerStyle:{ backgroundColor:"#ffffff",
         shadowOffset:{
           height: 0,
           width:0
         }}}} />
           <Stack.Screen name="Sleep" component={Sleep} options={{headerStyle:{ backgroundColor:"#ffffff"}}} />
+          <Stack.Screen name="StrainExcercise" component={StrainExcercise} options={{headerStyle:{ backgroundColor:"#ffffff"}}} />
     </Stack.Navigator>
   );
 }

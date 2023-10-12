@@ -27,7 +27,7 @@ export default function ProfileScreen(props: any) {
 
   const Personal = () => (
     <View px={4} h="100%" w="100%" pt={3} backgroundColor="#fff" flex={1}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
         <Heading color="black" fontSize="sm">Personal</Heading>
         <View flexDirection="row" ml={1}>
           <VStack py={2} w="90%">
@@ -132,7 +132,7 @@ export default function ProfileScreen(props: any) {
     }
     return (
       <View px={4} w="100%" pt={3} backgroundColor="#fff" flex={1}>
-        <ScrollView>
+        <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
           <Pressable w="100%" mb={3} rounded="lg" flexDirection="row" overflow="hidden" borderColor="coolGray.200" borderWidth="0.8" onPress={() => cardClick()}>
             <View w="80%" flexDirection="row">
               <View pl={2} py={3} alignItems="center">
@@ -212,7 +212,7 @@ export default function ProfileScreen(props: any) {
     const [state, setState] = useState(false)
     return (
       <View px={4} w="100%" pt={3} backgroundColor="#fff" flex={1}>
-        <ScrollView>
+        <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
           <View flexDirection="row">
             <VStack py={2} w="82%">
               <Heading color="black" fontSize="sm">Medical Information</Heading>
