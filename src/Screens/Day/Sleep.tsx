@@ -5,7 +5,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Octicons from "react-native-vector-icons/Octicons"
 
-export default function Sleep() {
+export default function Sleep(props: any) {
 
     return(
         <View h="100%" w="100%" pt={3} px={3} style={{ backgroundColor: "#ffffff" }}>
@@ -42,7 +42,7 @@ export default function Sleep() {
                         </VStack>
                     </HStack>
                     <HStack w="20%" py={4}>
-                        <Text fontSize={13} color="#2dc6c6">
+                        <Text fontSize={13} color="#2dc6c6" onPress={() => props.navigation.navigate('SleepDetails')}>
                             Details <MaterialIcons name="arrow-forward-ios" color="#2dc6c6" size={9}></MaterialIcons>
                         </Text>
                     </HStack>
@@ -91,7 +91,7 @@ export default function Sleep() {
                         </VStack>
                     </HStack>
                     <HStack w="20%" py={4}>
-                        <Text fontSize={13} color="#2dc6c6">
+                        <Text fontSize={13} color="#2dc6c6" onPress={() => props.navigation.navigate('WakeUpDetails')}>
                             Details <MaterialIcons name="arrow-forward-ios" color="#2dc6c6" size={9}></MaterialIcons>
                         </Text>
                     </HStack>
