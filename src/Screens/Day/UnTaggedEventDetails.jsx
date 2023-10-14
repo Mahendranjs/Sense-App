@@ -9,7 +9,7 @@ import { Dimensions } from "react-native";
 import * as scale from 'd3-scale'
 import Svg, { Defs, G, LinearGradient, Stop, Image, Rect, Text as SvgText } from "react-native-svg";
 
-export default function SleepDetailScreen(props) {
+export default function UnTaggedEventDetailScreen(props) {
     const dataSetArea = [
         {
             date: new Date(2000, 0, 1, 0, 0),
@@ -98,20 +98,19 @@ export default function SleepDetailScreen(props) {
             <View backgroundColor="#fff" px={3} pb={10}>
                 <HStack mt={2}>
                     <VStack mt={4} mr={1}>
-                        <ChevronLeftIcon size="4" color="black" onPress={() => props.navigation.navigate('Sleep')} />
+                        <ChevronLeftIcon size="4" color="black" onPress={() => props.navigation.navigate('UnTaggedEvent')} />
                     </VStack>
-                    <VStack>
-                        <Circle size="30px" bg="#d5b8ff" mt={2} mr={2}>
-                        <Octicons color="#A076F9" name="moon" size={20}></Octicons>
-                            {/* <MoonIcon size="5" /> */}
+                    <VStack mt={2} mr={1}>
+                    <Circle size="30px" bg="#fdb5af">
+                            <Octicons color="#FF3C3C" name="upload" size={20}></Octicons>
                         </Circle>
                     </VStack>
                     <VStack mt={1}>
                         <Text bold fontSize="sm" color="black">
-                            Sleep
+                            Untagged High Event
                         </Text>
                         <Text color="gray.400" fontSize="xs">
-                            8:00 PM - 9:00 PM
+                            12:00 PM - 1:00 PM
                         </Text>
                     </VStack>
                 </HStack>
@@ -145,28 +144,6 @@ export default function SleepDetailScreen(props) {
                             width={Dimensions.get('screen').width - 30} // Adjust the width as needed
                             height={170} // Adjust the height as needed
                         />
-                        {/* <AreaChart
-                            style={{ flex: 1, width: Dimensions.get('screen').width - 30 }}
-                            data={dataSetBar}
-                            yAccessor={({ item }) => item.value}
-                            svg={{ fill: 'rgba(134, 65, 244, 0.2)' }}
-                            contentInset={contentInset}
-                            curve={shape.curveStep}
-                            xScale={shape.scaleTime}
-                        >
-                            <Grid />
-                        </AreaChart> */}
-                        {/* <BarChart
-                            style={{ width: Dimensions.get('screen').width - 30, position: 'absolute', top: 0, bottom: 0, right: 0, left: 0 }}
-                            data={dataSetBar}
-                            // animate={true}
-                            yAccessor={({ item }) => item.value}
-                            svg={{ fill: 'rgba(134, 65, 244, 0.2)' }}
-                            contentInset={contentInset}
-                            curve={shape.curveCardinal.tension(0.2)}
-                            xScale={scale.scaleTime}>
-                            <Grid />
-                        </BarChart> */}
                         <XAxis
                             style={{ marginHorizontal: -15, height: 20 }}
                             data={dataSetArea}
@@ -185,41 +162,6 @@ export default function SleepDetailScreen(props) {
                         />
                     </View>
                 </View>
-                {/* <View style={{ height: 230, flexDirection: 'row', backgroundColor: "#fff" }} px={3}>
-                    <YAxis
-                        data={dataSet}
-                        style={{ width: 30 }}
-                        numberOfTicks={4}
-                        contentInset={{ top: 30, bottom: 30 }}
-                        svg={{ fill: 'grey', fontSize: 10 }}
-                        formatLabel={(value, index) => String(value)}
-                    />
-
-                    <View style={{ flex: 1 }}>
-                        <LineChart
-                            style={{ flex: 1, width: Dimensions.get('screen').width - 30 }}
-                            data={dataSet}
-                            svg={{ fill: 'url(#linegradient)' }}
-                            curve={shape.curveCardinal.tension(0.2)}>
-                            {lineGradient}
-                        </LineChart>
-
-                        <BarChart
-                            style={{ flex: 1, width: Dimensions.get('screen').width - 30, position: 'absolute', top: 0, bottom: 0, right: 0, left: 0 }}
-                            data={dataBar}
-                            contentInset={contentInset}
-                            svg={{ fill: 'rgba(134, 65, 244, 0.2)' }}>
-                        </BarChart>
-
-                        <XAxis
-                            style={{ marginHorizontal: -10, width: Dimensions.get('screen').width - 30 }}
-                            data={XAxisCoordinates}
-                            formatLabel={(value, index) => XAxisCoordinates[index]}
-                            contentInset={{ left: 20, right: 10 }}
-                            svg={{ fontSize: 10, fill: 'black' }}
-                        />
-                    </View>
-                </View> */}
                 <View h="100%" w="100%" px={3} style={{ backgroundColor: "#ffffff" }}>
                     <HStack justifyContent="space-evenly" py={2} flexDirection="row" backgroundColor="white">
                         <VStack>
@@ -227,8 +169,8 @@ export default function SleepDetailScreen(props) {
                             <Text fontSize="xs" color="gray.400">160 mg/dl</Text>
                         </VStack>
                         <VStack>
-                            <Text color="#A076F9" fontWeight="500" fontSize="xs">SLEEP</Text>
-                            <Text fontSize="xs" color="gray.400">7h 30m</Text>
+                            <Text color="#fdb5af" fontWeight="500" fontSize="xs">UNTAGGED EVENT</Text>
+                            <Text fontSize="xs" color="gray.400">45m</Text>
                         </VStack>
                     </HStack>
                     <HStack space={2.5} alignItems="center" mt={5}>

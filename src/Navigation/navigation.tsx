@@ -22,6 +22,8 @@ import StrainExcercise from "../Screens/Day/StrainExcercise";
 import SleepDetailScreen from "../Screens/Day/SleepDetails";
 import WakeUpDetailScreen from "../Screens/Day/WakeUpDetails";
 import UnTaggedScreen from "../Screens/Day/UnTagged";
+// import ChartScreen from "../Screens/chart";
+import UnTaggedEventDetailScreen from "../Screens/Day/UnTaggedEventDetails";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -72,11 +74,11 @@ function DayRoute(props: any) {
         return (
           <HStack px={3} pb={3} space={2}>
             <Pressable display="flex" style={{ height: 30, width: 30, borderRadius: 30, backgroundColor: "#E4F6F7", alignItems: "center", justifyContent: "center" }} onPress={() => BackNavigation()}>
-            <ChevronLeftIcon size="4" color="black" />
+              <ChevronLeftIcon size="4" color="black" />
               {/* <MaterialIcons name="arrow-back-ios" color="black" size={14}></MaterialIcons> */}
             </Pressable>
             <Pressable display="flex" style={{ height: 30, width: 30, borderRadius: 30, backgroundColor: "#E4F6F7", alignItems: "center", justifyContent: "center" }} onPress={() => forwardNavigation()}>
-            <ChevronRightIcon size="4" color="black" />
+              <ChevronRightIcon size="4" color="black" />
               {/* <MaterialIcons name="arrow-forward-ios" color="black" size={14}></MaterialIcons> */}
             </Pressable>
           </HStack>
@@ -170,6 +172,8 @@ const Main = () => {
         <Stack.Screen name="MedicalInfo" component={MedicalInfoScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SleepDetails" component={SleepDetailScreen} options={{ headerShown: false }} />
         <Stack.Screen name="WakeUpDetails" component={WakeUpDetailScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="UnTaggedEventDetails" component={UnTaggedEventDetailScreen} options={{ headerShown: false }} />
+        {/* <Stack.Screen name="charts" component={ChartScreen} options={{ headerShown: false }} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

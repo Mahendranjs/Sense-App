@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Octicons from "react-native-vector-icons/Octicons";
 
-export default function UnTaggedScreen() {
+export default function UnTaggedScreen(props) {
     return (
         <View flex={1} h="100%" w="100%" backgroundColor="#ffff" color="#ffff" px={4} pt={4}>
             <HStack>
@@ -29,7 +29,7 @@ export default function UnTaggedScreen() {
                         <Text style={[styles.blackcolor]} fontSize="sm" bold>High Event</Text>
                         <Text color="gray.400" textAlign="left">12:00-1:00 PM</Text>
                     </Box>
-                    <Box width="40%" mt={2} mr={1}>
+                    <Box width="40%" mt={2} mr={1} onPress={() => props.navigation.navigate('UnTaggedEventDetails')}>
                         <Text color="primary.500" textAlign="right" fontSize="16" >Details
                         </Text>
                     </Box>
