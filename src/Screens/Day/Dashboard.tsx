@@ -8,12 +8,12 @@ import { Dimensions } from "react-native";
 import Svg, { Defs, G, LinearGradient, Stop, Image, Rect, Text as SvgText } from "react-native-svg";
 import * as scale from 'd3-scale'
 
-export default function Dashboard() {
+export default function Dashboard(props) {
     const contentInset = { top: 10, bottom: 10 };
     const data1 = [
         { startTime: new Date(2018, 0, 0, 0, 0).getTime(), endTime: new Date(2018, 0, 0, 6, 0).getTime(), color: 'rgba(134, 65, 244, 0.2)' },
         { startTime: new Date(2018, 0, 0, 7, 0).getTime(), endTime: new Date(2018, 0, 0, 8, 0).getTime(), color: 'rgba(226, 240, 217, 0.5)' },
-        { startTime: new Date(2018, 0, 0, 23, 0).getTime(), endTime: new Date(2018, 0, 0, 23, 59).getTime(), color: 'rgba(134, 65, 244, 0.2)' },
+        { startTime: new Date(2018, 0, 0, 23, 0).getTime(), endTime: new Date(2018, 0, 0, 24, 0).getTime(), color: 'rgba(134, 65, 244, 0.2)' },
     ];
 
     const startTime = new Date(new Date(2018, 0, 0, 0, 0)).getTime(); // Adjust your start time
@@ -105,6 +105,8 @@ export default function Dashboard() {
                             contentInset={{ top: 10, bottom: 4 }}
                             svg={{ stroke: 'rgb(65, 226, 244)', fill: 'url(#gradient)' }}
                             curve={shape.curveCardinal.tension(0.2)}
+                            xMax={new Date(2018, 0, 0, 23, 59).getTime()}
+                            xMin={new Date(2018, 0, 0, 0, 0).getTime()}
                         >
                             <Gradient />
                         </AreaChart>
@@ -175,7 +177,7 @@ export default function Dashboard() {
                                 </Text>
                             </VStack>
                             <VStack w="20%" px={1} py={2} justifyContent="start" alignItems="flex-end">
-                                <Text fontSize={13} color="#2dc6c6">
+                                <Text fontSize={13} color="#2dc6c6" onPress={()=> props.navigation.navigate('GlucoseDetails')}>
                                     Details <MaterialIcons name="arrow-forward-ios" color="#2dc6c6" size={9}></MaterialIcons>
                                 </Text>
                             </VStack>

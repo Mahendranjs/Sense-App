@@ -25,6 +25,7 @@ import UnTaggedScreen from "../Screens/Day/UnTagged";
 // import ChartScreen from "../Screens/chart";
 import UnTaggedEventDetailScreen from "../Screens/Day/UnTaggedEventDetails";
 import OutdoorDetailScreen from "../Screens/Day/OutDoorDetails";
+import GlucoseDetails from "../Screens/Day/GlucoseDetails";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -176,6 +177,7 @@ const Main = () => {
         <Stack.Screen name="UnTaggedEventDetails" component={UnTaggedEventDetailScreen} options={{ headerShown: false }} />
         <Stack.Screen name="OutdoorDetails" component={OutdoorDetailScreen} options={{ headerShown: false }} />
         {/* <Stack.Screen name="charts" component={ChartScreen} options={{ headerShown: false }} /> */}
+        <Stack.Screen name="GlucoseDetails" component={GlucoseDetails} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
