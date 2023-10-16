@@ -99,7 +99,6 @@ export default function GlucoseDetails(props: any) {
                     <Text color="gray.400" fontSize={9}>12:00 am - 12:00 am</Text>
                 </VStack>
             </View>
-            <View h="100%" backgroundColor="#ffffff" >
                 <ScrollView backgroundColor="#fff" h="100%" showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
                     <View style={{ height: 190, flexDirection: 'row', backgroundColor: "#ffffff" }}>
                         <YAxis
@@ -272,7 +271,6 @@ export default function GlucoseDetails(props: any) {
                         </Box>
                     </View>
                 </ScrollView>
-            </View>
         </>
     )
 
