@@ -54,19 +54,21 @@ export default function SleepDetailScreen(props) {
 
     const data1 = [
         // { startTime: new Date(2018, 0, 0, 0, 0).getTime(), endTime: new Date(2018, 0, 0, 6, 0).getTime(), color: 'rgba(134, 65, 244, 0.2)' },
-        { startTime: new Date(2018, 0, 0, 7, 18).getTime(), endTime: new Date(2018, 0, 0, 23, 7).getTime(), color: 'rgba(134, 65, 244, 0.2)',startDateTime: new Date(2018, 0, 0, 7, 18), endDateTime: new Date(2018, 0, 0, 23, 7)},
+        { startTime: new Date(2018, 0, 0, 7, 18).getTime(), endTime: new Date(2018, 0, 0, 18, 7).getTime(), color: 'rgba(134, 65, 244, 0.2)', startDateTime: new Date(2018, 0, 0, 7, 18), endDateTime: new Date(2018, 0, 0, 23, 7) },
     ];
 
     const startTime = new Date(new Date(2018, 0, 0, 0, 0)).getTime(); // Adjust your start time
     const endTime = new Date(new Date(2018, 0, 0, 23, 59)).getTime();
 
-    const sleepCoordinates = [0, '-15 min',new Date(data1[0].startDateTime).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true }),new Date(data1[0].endDateTime).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true }),'+1 hr'];
+    const sleepCoordinates = [0, '-15 min', new Date(data1[0].startDateTime).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true }), new Date(data1[0].endDateTime).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true }), '+1 hr'];
 
     const BarChart = ({ startTime, endTime, data, width, height }) => {
         const timeRange = endTime - startTime;
         return (
             <View style={{ width: Dimensions.get('screen').width - 30, position: 'absolute', bottom: 0, right: 0, left: 0 }}>
-                <ChevronLeftIcon size="4" color="#A076F9" pr={15}/>
+                {/* <Box ml={55}> */}
+                   
+                {/* </Box> */}
                 <Svg width={width} height={height}>
                     {data.map((item, index) => {
                         const xStart = ((item.startTime - startTime) / timeRange) * width;
@@ -84,10 +86,12 @@ export default function SleepDetailScreen(props) {
                                     height={150} // Adjust the bar height as needed
                                     fill={item.color} // Customize the bar color
                                 />
+                                 {/* <ChevronLeftIcon size="4" color="#A076F9" />
+                                 <Octicons color="black" name="moon" size={20}></Octicons> */}
                             </G>
                         );
                     })}
-                    <Octicons color="#A076F9" name="moon" size={20}></Octicons>
+                    {/* <Octicons color="black" name="moon" size={20}></Octicons> */}
                 </Svg>
             </View>
         );
@@ -102,7 +106,7 @@ export default function SleepDetailScreen(props) {
                     </VStack>
                     <VStack>
                         <Circle size="30px" bg="#d5b8ff" mt={2} mr={2}>
-                        <Octicons color="#A076F9" name="moon" size={20}></Octicons>
+                            <Octicons color="#A076F9" name="moon" size={20}></Octicons>
                             {/* <MoonIcon size="5" /> */}
                         </Circle>
                     </VStack>
@@ -145,28 +149,6 @@ export default function SleepDetailScreen(props) {
                             width={Dimensions.get('screen').width - 30} // Adjust the width as needed
                             height={170} // Adjust the height as needed
                         />
-                        {/* <AreaChart
-                            style={{ flex: 1, width: Dimensions.get('screen').width - 30 }}
-                            data={dataSetBar}
-                            yAccessor={({ item }) => item.value}
-                            svg={{ fill: 'rgba(134, 65, 244, 0.2)' }}
-                            contentInset={contentInset}
-                            curve={shape.curveStep}
-                            xScale={shape.scaleTime}
-                        >
-                            <Grid />
-                        </AreaChart> */}
-                        {/* <BarChart
-                            style={{ width: Dimensions.get('screen').width - 30, position: 'absolute', top: 0, bottom: 0, right: 0, left: 0 }}
-                            data={dataSetBar}
-                            // animate={true}
-                            yAccessor={({ item }) => item.value}
-                            svg={{ fill: 'rgba(134, 65, 244, 0.2)' }}
-                            contentInset={contentInset}
-                            curve={shape.curveCardinal.tension(0.2)}
-                            xScale={scale.scaleTime}>
-                            <Grid />
-                        </BarChart> */}
                         <XAxis
                             style={{ marginHorizontal: -15, height: 20 }}
                             data={dataSetArea}
@@ -185,41 +167,6 @@ export default function SleepDetailScreen(props) {
                         />
                     </View>
                 </View>
-                {/* <View style={{ height: 230, flexDirection: 'row', backgroundColor: "#fff" }} px={3}>
-                    <YAxis
-                        data={dataSet}
-                        style={{ width: 30 }}
-                        numberOfTicks={4}
-                        contentInset={{ top: 30, bottom: 30 }}
-                        svg={{ fill: 'grey', fontSize: 10 }}
-                        formatLabel={(value, index) => String(value)}
-                    />
-
-                    <View style={{ flex: 1 }}>
-                        <LineChart
-                            style={{ flex: 1, width: Dimensions.get('screen').width - 30 }}
-                            data={dataSet}
-                            svg={{ fill: 'url(#linegradient)' }}
-                            curve={shape.curveCardinal.tension(0.2)}>
-                            {lineGradient}
-                        </LineChart>
-
-                        <BarChart
-                            style={{ flex: 1, width: Dimensions.get('screen').width - 30, position: 'absolute', top: 0, bottom: 0, right: 0, left: 0 }}
-                            data={dataBar}
-                            contentInset={contentInset}
-                            svg={{ fill: 'rgba(134, 65, 244, 0.2)' }}>
-                        </BarChart>
-
-                        <XAxis
-                            style={{ marginHorizontal: -10, width: Dimensions.get('screen').width - 30 }}
-                            data={XAxisCoordinates}
-                            formatLabel={(value, index) => XAxisCoordinates[index]}
-                            contentInset={{ left: 20, right: 10 }}
-                            svg={{ fontSize: 10, fill: 'black' }}
-                        />
-                    </View>
-                </View> */}
                 <View h="100%" w="100%" px={3} style={{ backgroundColor: "#ffffff" }}>
                     <HStack justifyContent="space-evenly" py={2} flexDirection="row" backgroundColor="white">
                         <VStack>

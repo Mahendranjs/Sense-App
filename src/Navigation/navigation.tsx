@@ -24,6 +24,7 @@ import WakeUpDetailScreen from "../Screens/Day/WakeUpDetails";
 import UnTaggedScreen from "../Screens/Day/UnTagged";
 // import ChartScreen from "../Screens/chart";
 import UnTaggedEventDetailScreen from "../Screens/Day/UnTaggedEventDetails";
+import OutdoorDetailScreen from "../Screens/Day/OutDoorDetails";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -173,6 +174,7 @@ const Main = () => {
         <Stack.Screen name="SleepDetails" component={SleepDetailScreen} options={{ headerShown: false }} />
         <Stack.Screen name="WakeUpDetails" component={WakeUpDetailScreen} options={{ headerShown: false }} />
         <Stack.Screen name="UnTaggedEventDetails" component={UnTaggedEventDetailScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="OutdoorDetails" component={OutdoorDetailScreen} options={{ headerShown: false }} />
         {/* <Stack.Screen name="charts" component={ChartScreen} options={{ headerShown: false }} /> */}
       </Stack.Navigator>
     </NavigationContainer>

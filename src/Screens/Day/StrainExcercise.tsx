@@ -3,7 +3,7 @@ import React from "react";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-export default function StrainExcercise() {
+export default function StrainExcercise(props: any) {
 
     return(
         <View h="100%" w="100%" pt={3} px={3} style={{ backgroundColor: "#ffffff" }}>
@@ -74,7 +74,7 @@ export default function StrainExcercise() {
                     </VStack>
                 </HStack>
                 <HStack w="20%" py={4}>
-                    <Text fontSize={13} color="#2dc6c6">
+                    <Text fontSize={13} color="#2dc6c6" onPress={() => props.navigation.navigate('OutdoorDetails')}>
                         Details <MaterialIcons name="arrow-forward-ios" color="#2dc6c6" size={9}></MaterialIcons>
                     </Text>
                 </HStack>
