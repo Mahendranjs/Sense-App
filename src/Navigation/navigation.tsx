@@ -86,7 +86,7 @@ function DayRoute(props: any) {
           </HStack>
         )
       },
-      headerStatusBarHeight: 24,
+      headerStatusBarHeight: 7,
       headerStyle: {
         backgroundColor: "#ffffff",
         borderBottomWidth: 0,

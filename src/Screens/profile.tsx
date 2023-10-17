@@ -92,10 +92,10 @@ export default function ProfileScreen(props: any) {
 
 
         <View flexDirection="row" mt={3}>
-          <VStack py={2} w="88%">
+          <VStack py={2} w="80%">
             <Heading color="black" fontSize="sm">Medical Provider</Heading>
           </VStack>
-          <VStack w="12%" justifyContent="center" alignItems="center" >
+          <VStack w="20%" justifyContent="center" alignItems="flex-end" >
             <Text color="#2dc6c6" fontWeight="semibold">
               Add +
             </Text>

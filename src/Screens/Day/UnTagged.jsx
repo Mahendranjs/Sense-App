@@ -3,6 +3,7 @@ import { Text, View, Heading, Circle, HStack, VStack, Box, QuestionIcon, Progres
 import { StyleSheet } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Octicons from "react-native-vector-icons/Octicons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 export default function UnTaggedScreen(props) {
     return (
@@ -34,8 +35,8 @@ export default function UnTaggedScreen(props) {
                         </VStack>
                     </HStack>
                     <HStack w="20%" py={4} mt={2}>
-                        <Text fontSize={13} mt={-2} color="#2dc6c6" onPress={() => props.navigation.navigate('UnTaggedEventDetails')}>
-                            Details <ChevronRightIcon size="3" color="primary.500" />
+                        <Text fontSize={13} color="#2dc6c6" onPress={() => props.navigation.navigate('UnTaggedEventDetails')}>
+                            Details <MaterialIcons name="arrow-forward-ios" color="#2dc6c6" size={9}></MaterialIcons>
                         </Text>
                     </HStack>
                 </View>

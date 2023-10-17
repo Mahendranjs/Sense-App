@@ -105,7 +105,7 @@ const MedicalInfoScreen = (props) => {
                     </View>
                     <HStack px={6} position="absolute" bottom={2} space={5} >
                         <Button rounded="lg" fontSize="lg" fontWeight="800" size="md" _text={{ fontWeight: "semibold" }} variant="outline" borderColor="primary.500" flexGrow={1} onPress={() => props.navigation.navigate('Tab2')}>Go Back</Button>
-                        <Button rounded="lg" size="md"  _text={{ fontWeight: "semibold" }} flexGrow={1} onPress={() => console.log('Home')}>Continue</Button>
+                        <Button rounded="lg" size="md"  _text={{ fontWeight: "semibold" }} flexGrow={1} onPress={() => props.navigation.navigate('Login')}>Continue</Button>
                     </HStack>
                 </KeyboardAvoidingView>
             </TouchableWithoutFeedback>
