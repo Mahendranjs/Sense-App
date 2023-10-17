@@ -95,7 +95,7 @@ export default function UnTaggedEventDetailScreen(props) {
 
     return (
         <>
-            <View backgroundColor="#fff" px={3} pb={10}>
+            <View backgroundColor="#fff" px={3} pb={2}>
                 <HStack mt={2}>
                     <VStack mt={4} mr={1}>
                         <ChevronLeftIcon size="4" color="black" onPress={() => props.navigation.navigate('UnTaggedEvent')} />

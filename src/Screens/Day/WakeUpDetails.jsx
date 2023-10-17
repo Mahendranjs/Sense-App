@@ -92,7 +92,7 @@ export default function WakeUpDetailScreen(props) {
                             </G>
                         );
                     })}
-                    <Octicons color="black" name="moon" size={20}></Octicons>
+                    {/* <Octicons color="black" name="moon" size={20}></Octicons> */}
                 </Svg>
             </View>
         );
